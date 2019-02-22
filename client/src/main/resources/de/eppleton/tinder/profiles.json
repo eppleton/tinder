@@ -1,0 +1,62 @@
+[{
+        "id": 1,
+        "status": "EMPTY",
+        "technology": "Maven",
+        "affiliation": "Red Hat",
+        "name": "Gunnar Morling",
+        "img": "assets/gunnar.png",
+        "quote": "Apache Maven is like a fresh morning breeze",
+        "description": "Open source software engineer @ Red Hat, working on Debezium and Hibernate; Spec lead of Bean Validation 2.0; Founder of MapStruct and ModiTect"
+    },
+    {
+        "id": 2,
+        "status": "EMPTY",
+        "technology": "Gradle",
+        "name": "Andres Almiray",
+        "affiliation": "Gradle Inc.",
+        "quote": "Gradle is like a Cradle, but with a 'G'",
+        "description": "JSR377 Spec lead, Groovy aficionado, Griffon project lead, Java Champion, JCP EC, Hackergarten, Developer Advocate",
+        "img": "assets/andres.png"
+    },
+    {
+        "id": 3,
+        "status": "EMPTY",
+        "technology": "Spring",
+        "name": "Michael Simons",
+        "affiliation": "Neo4j",
+        "quote": "Spring adds new life and new beauty to all that is.",
+        "description": "Father, Husband, Programmer, Cyclist. Author of @springbootbuch, founder of @euregjug. Java champion working on @springdata at @neo4j.",
+        "img": "assets/michael.png"
+    },
+    {
+        "id": 4,
+        "status": "EMPTY",
+        "technology": "Jakarta EE",
+        "name": "Ed Burns",
+        "affiliation": "Oracle",
+        "quote": "Summer makes me drowsy,Autumn makes me sing,Winter’s pretty lousy,but I hate Spring",
+        "description": "Ed Burns is a software stylist, speaker, and author, currently working in the server side Java space.",
+        "img": "assets/ed.png"
+    },
+    {
+        "id": 5,
+        "status": "EMPTY",
+        "technology": "Fragil",
+        "name": "Markus Eisele",
+        "affiliation": "Lightbend",
+        "quote": "Some people never go crazy. What truly horrible lives they must lead.",
+        "description": "I drink coffee for your protection. Director of Developer Advocacy at @Lightbend.",
+        "img": "assets/markus.jpg"
+    },
+    {
+        "id": 6,
+        "status": "EMPTY",
+        "technology": "Agile",
+        "name": "Sven Peters",
+        "affiliation": "Atlassian",
+        "quote": "Had i ever been a real superhero? the most i'd ever had to offer the world was good intentions and a slightly elevated capacity to take a kicking .. with no power, comes no responsibility .. except that wasn't true",
+        "description": "I'm a tech nerd and love helping all kind of teams to kick ass! Working at @k15tsoftware but opinions are totally my own.",
+        "img": "assets/sven.png"
+    }
+]
+

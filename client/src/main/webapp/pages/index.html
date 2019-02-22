@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link href="index.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="main">
+            <div class="Navbar">
+                <div class="Navbar__Link Navbar__Link-brand">
+                    <span class="logo-text">timber</span>
+                </div>
+                <div class="Navbar__Link">
+                    <i class="logo-icon fa fa-fire-alt"></i>
+
+                </div>
+                <!--                <div class="Navbar__Link">
+                                    <i class="logo-icon fa fa-graduation-cap fa-gradient"></i>
+                                </div>
+                                <div class="Navbar__Link">
+                                    <i class="logo-icon fa fa-calendar"></i>
+                                </div>
+                                <div class="Navbar__Link">
+                                    <i class="logo-icon fa fa-user"></i>
+                                </div>
+                                <div class="Navbar__Link">
+                                    <i class="logo-icon fa fa-newspaper"></i>
+                                </div>-->
+                <div class="Navbar__Link">
+                    <a class="trainer-button" href="/" >About</a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="trainer-card-stack">
+                    <!-- ko template:{name: 'profile', data: nextProfile} -->
+                    
+                    <!-- /ko -->
+                    <!-- ko template:{name: 'profile', data: activeProfile} -->
+                    
+                    <!-- /ko -->
+                </div>
+            </div>
+            <div class="buttons-overview" data-bind="visible: !profileDetailsShowing()">
+                <!--            <a class="selection-button button-undo">
+                                <i class=" fas fa-undo"></i>
+                            </a>-->
+
+                <a class="selection-button button-nope" data-bind="click: swipeLeft"s>
+                    <i class=" fas fa-times"></i>
+                </a>
+                <a class="selection-button button-super" data-bind="click: swipeUp">
+                    <i class=" fas fa-star"></i>
+                </a>
+                <a class="selection-button button-like" data-bind="click: swipeRight">
+                    <i class=" fas fa-heart"></i>
+                </a>
+
+            </div>
+            <div id="title" data-bind="visible: !loaded()">
+                <div><i class="loading-icon fa fa-fire-alt"></i></div>
+            </div> 
+
+        </div>
+        <!-- ${browser.bootstrap} -->
+        <script id="profile">
+            <div id="activeProfile" class="trainer-card-outer" data-bind="event: {webkitAnimationEnd: $root.newTop}">
+                        <div class="trainer-card-wrapper" data-bind="css: {swipeLeft: status()=='DISMISSED', swipeRight: status()=='LIKED', swipeUp: status()=='SUPERLIKED'}">
+                            <div class="trainer-card">
+                                <!--<div class="trainer-card-inner">-->
+                                <div class="profile-image-wrapper">
+                                    <div class="scroll-wrapper">
+                                        <img class="profile-image" alt="" data-bind="attr: {src: img}"/>
+                                        <a class="selection-button close-details-button" data-bind="visible: $root.profileDetailsShowing, click: $root.hideDetails">
+                                            <i class="fa fa-arrow-down"></i>
+                                        </a>
+                                    </div>
+                                    <div class="profile-image-overlay" data-bind="visible: !$root.profileDetailsShowing()">
+                                        <div class="profile-overlay-top">
+                                            <div class="profile-header">
+                                                <span class="profile-name" data-bind="text:technology">Top Monaco</span>&nbsp;<span class="profile-age" data-bind="text:name">47</span>           
+                                            </div>
+                                            <div class="">
+                                                <i class="fas fa-suitcase"></i>
+                                                <span data-bind="text: affiliation"></span>
+                                            </div>
+                                        </div>
+                                        <i data-bind="click: $root.showDetails" class="profile-info-button fas fa-info-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="profile-details-wrapper" data-bind="visible: $root.profileDetailsShowing">
+                                    <div class="profile-description">
+                                        <div class="profile-header">
+                                            <span class="profile-name" data-bind="text: technology">Monaco</span>&nbsp;<span class="profile-age" data-bind="text: name"></span>           
+                                        </div>
+                                        <div class="profile-details">
+                                            <i class="fas fa-suitcase"></i>
+                                            <span data-bind="text: affiliation">Java Champion</span>
+                                        </div>
+                                    </div>
+                                    <div class="profile-description">
+                                        <div class="profile-details" data-bind="text:quote">
+                                            Code immer so, als wäre derjenegige, der Deinen Code später 
+                                            pflegt, ein gewaltätiger Psychopath, der weiß, wo Du wohnst.  
+                                        </div>
+                                    </div>
+                                    <div class="profile-description">
+                                        <div class="profile-details" data-bind="text:description">
+                                            Anton Epple hat mehr als 15 Jahren Erfahrung in der Leitung von Java-Projekten und veröffentlichte zahlreiche Artikel und Bücher über das Thema. Er ist als Berater weltweit für eine Vielzahl von Unternehmen tätig, angefangen von Start-ups bis hin zu Fortune 500-Unternehmen, in vielen Bereichen, einschließlich der Finanzinstitutionen und Aerospace. Anton ist Java Champion, ein Mitglied des NetBeans Dream Team, Gewinner des Duke's Choice Award und JavaONE Rockstar.
+                                        </div>
+                                    </div>
+                     
+                                    <div class="profile-bottom-spacer">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="trainer-card-overlay" data-bind="visible: $root.profileDetailsShowing">
+                            <a class="selection-button button-nope" data-bind="click: $root.swipeLeft"s>
+                                <i class=" fas fa-times"></i>
+                            </a>
+                            <a class="selection-button button-super" data-bind="click: $root.swipeUp">
+                                <i class=" fas fa-star"></i>
+                            </a>
+                            <a class="selection-button button-like" data-bind="click: $root.swipeRight">
+                                <i class=" fas fa-heart"></i>
+                            </a>
+                        </div>
+
+                    </div>
+        </script>
+    </body>
+</html>
