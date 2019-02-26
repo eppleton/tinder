@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.java.html.BrwsrCtx;
+import net.java.html.json.ComputedProperty;
 import net.java.html.json.Function;
 import net.java.html.json.Model;
 import net.java.html.json.Models;
@@ -16,26 +17,23 @@ import net.java.html.json.Property;
             , @Property(name = "profiles", type = Profile.class, array = true)
             , @Property(name = "activeProfile", type = Profile.class)
             , @Property(name = "nextProfile", type = Profile.class)
+            , @Property(name = "newProfile", type = Profile.class)
+            , @Property(name = "myProfile", type = Profile.class)
             , @Property(name = "loaded", type = boolean.class)
         })
 final class DataModel {
-
-    public static enum Status {
-        LIKED, SUPERLIKED, DISMISSED, EMPTY
-    }
-
     /**
      * Called when the page is ready.
      */
     static void onPageLoad() {
         Root ui = new Root();
         ArrayList<Profile> arrayList = new ArrayList<>();
-        
+
         try {
             Models.parse(BrwsrCtx.findDefault(DataModel.class),
                     Profile.class,
-                    DataModel.class.getResourceAsStream("profiles.json")
-                    , arrayList);
+                    DataModel.class.getResourceAsStream("profiles.json"),
+                     arrayList);
             ui.getProfiles().addAll(arrayList);
         } catch (IOException ex) {
             Logger.getLogger(DataModel.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,9 +41,27 @@ final class DataModel {
 
         ui.setActiveProfile(ui.getProfiles().get(0));
         ui.setNextProfile(ui.getProfiles().get(1));
+        ui.setNewProfile(new Profile());
         ui.setLoaded(true);
         ui.applyBindings();
     }
+
+    public static enum Status {
+        LIKED, SUPERLIKED, DISMISSED, EMPTY
+    }
+    
+    @ComputedProperty
+    public static boolean registered(Profile myProfile){
+        return myProfile!=null && 
+                myProfile.getName()!=null 
+                && !myProfile.getName().isEmpty();
+    }
+    
+    @Function
+    public static void storeProfile(Root ui){
+        ui.setMyProfile(ui.getNewProfile());
+    }
+
 
     @Function
     public static void showDetails(Root root) {
