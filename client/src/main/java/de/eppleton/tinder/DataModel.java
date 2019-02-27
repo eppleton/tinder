@@ -9,6 +9,7 @@ import net.java.html.BrwsrCtx;
 import net.java.html.json.ComputedProperty;
 import net.java.html.json.Function;
 import net.java.html.json.Model;
+import net.java.html.json.ModelOperation;
 import net.java.html.json.Models;
 import net.java.html.json.OnReceive;
 import net.java.html.json.Property;
@@ -49,6 +50,7 @@ final class DataModel {
         ui.setNewProfile(new Profile());
         ui.setLoaded(true);
         ui.applyBindings();
+        ui.loadAllProfiles();
     }
 
     public static enum Status {
@@ -67,21 +69,30 @@ final class DataModel {
         ui.storeProfileOnServer(ui.getBaseUrl()+"java-app2/javafn-trigger",ui.getNewProfile());
     }
     
-     @OnReceive(method = "POST", url = "{url}", data=Profile.class, onError = "cannotConnect")
+    @OnReceive(method = "POST", url = "{url}", data=Profile.class, onError = "cannotConnect")
     public static void storeProfileOnServer(Root ui, Profile data){
-        ui.setMyProfile(data);
-        ui.loadProfiles(ui.getBaseUrl()+"getprofiles/getallprofiles-trigger");
+        ui.setMyProfile(data);     
     }
     
-     @OnReceive( url = "{url}", onError = "cannotConnect")
+    @Function
+    @ModelOperation
+    public static void loadAllProfiles(Root ui){
+         ui.loadProfiles(ui.getBaseUrl()+"getprofiles/getallprofiles-trigger");
+    }
+    
+    @OnReceive( url = "{url}", onError = "cannotConnect")
     public static void getProfileFromServer(Root ui, Profile data){
         ui.setMyProfile(data);
         ui.setActiveProfile(data);
     }
     
-     @OnReceive(url = "{url}", onError = "cannotConnect")
+    @OnReceive(url = "{url}", onError = "cannotConnect")
     static void loadProfiles(Root ui, List<Profile> arr) {
-        
+         System.out.println("loaded "+arr);
+                
+         for (Profile p : arr) {
+                    System.out.println("p "+p);
+         }
         ui.getProfiles().clear();     
         ui.getProfiles().addAll(arr);
     }
