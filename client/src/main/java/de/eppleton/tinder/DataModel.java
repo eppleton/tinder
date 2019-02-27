@@ -88,12 +88,8 @@ final class DataModel {
     
     @OnReceive(url = "{url}", onError = "cannotConnect")
     static void loadProfiles(Root ui, List<Profile> arr) {
-         System.out.println("loaded "+arr);
-                
-         for (Profile p : arr) {
-                    System.out.println("p "+p);
-         }
-        ui.getProfiles().clear();     
+
+//        ui.getProfiles().clear();     
         ui.getProfiles().addAll(arr);
     }
     
