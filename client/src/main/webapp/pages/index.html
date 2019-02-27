@@ -69,110 +69,112 @@
 
         </div>
         <!-- ${browser.bootstrap} -->
-        <script id="profile">
+        <script type="text/html" id="profile">
             <div id="activeProfile" class="trainer-card-outer" data-bind="event: {webkitAnimationEnd: $root.newTop}">
-            <div class="trainer-card-wrapper" data-bind="css: {swipeLeft: status()=='DISMISSED', swipeRight: status()=='LIKED', swipeUp: status()=='SUPERLIKED'}">
-            <div class="trainer-card">
-            <!--<div class="trainer-card-inner">-->
-            <div class="profile-image-wrapper">
-            <div class="scroll-wrapper">
-            <img class="profile-image" alt="" data-bind="attr: {src: img}"/>
-            <a class="selection-button close-details-button" data-bind="visible: $root.profileDetailsShowing, click: $root.hideDetails">
-            <i class="fa fa-arrow-down"></i>
-            </a>
-            </div>
-            <div class="profile-image-overlay" data-bind="visible: !$root.profileDetailsShowing()">
-            <div class="profile-overlay-top">
-            <div class="profile-header">
-            <span class="profile-name" data-bind="text:technology">Top Monaco</span>&nbsp;<span class="profile-age" data-bind="text:name">47</span>           
-            </div>
-            <div class="">
-            <i class="fas fa-suitcase"></i>
-            <span data-bind="text: affiliation"></span>
-            </div>
-            </div>
-            <i data-bind="click: $root.showDetails" class="profile-info-button fas fa-info-circle"></i>
-            </div>
-            </div>
-            <div class="profile-details-wrapper" data-bind="visible: $root.profileDetailsShowing">
-            <div class="profile-description">
-            <div class="profile-header">
-            <span class="profile-name" data-bind="text: technology">Monaco</span>&nbsp;<span class="profile-age" data-bind="text: name"></span>           
-            </div>
-            <div class="profile-details">
-            <i class="fas fa-suitcase"></i>
-            <span data-bind="text: affiliation">Java Champion</span>
-            </div>
-            </div>
-            <div class="profile-description">
-            <div class="profile-details" data-bind="text:quote"> 
-            </div>
-            </div>
-            <div class="profile-description">
-            <div class="profile-details" data-bind="text:description">
-            </div>
-            </div>
+                <div class="trainer-card-wrapper" data-bind="css: {swipeLeft: status()=='DISMISSED', swipeRight: status()=='LIKED', swipeUp: status()=='SUPERLIKED'}">
+                    <div class="trainer-card">
+                        <!--<div class="trainer-card-inner">-->
+                        <div class="profile-image-wrapper">
+                            <div class="scroll-wrapper">
+                                <img class="profile-image" alt="" data-bind="attr: {src: img}"/>
+                                <a class="selection-button close-details-button" data-bind="visible: $root.profileDetailsShowing, click: $root.hideDetails">
+                                    <i class="fa fa-arrow-down"></i>
+                                </a>
+                            </div>
+                            <div class="profile-image-overlay" data-bind="visible: !$root.profileDetailsShowing()">
+                                <div class="profile-overlay-top">
+                                    <div class="profile-header">
+                                        <span class="profile-name" data-bind="text:technology">Top Monaco</span>&nbsp;<span class="profile-age" data-bind="text:name">47</span>           
+                                    </div>
+                                    <div class="">
+                                        <i class="fas fa-suitcase"></i>
+                                        <span data-bind="text: affiliation"></span>
+                                    </div>
+                                </div>
+                                <i data-bind="click: $root.showDetails" class="profile-info-button fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        <div class="profile-details-wrapper" data-bind="visible: $root.profileDetailsShowing">
+                            <div class="profile-description">
+                                <div class="profile-header">
+                                    <span class="profile-name" data-bind="text: technology">Monaco</span>&nbsp;<span class="profile-age" data-bind="text: name"></span>           
+                                </div>
+                                <div class="profile-details">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span data-bind="text: affiliation">Java Champion</span>
+                                </div>
+                            </div>
+                            <div class="profile-description">
+                                <div class="profile-details" data-bind="text:quote"> 
+                                </div>
+                            </div>
+                            <div class="profile-description">
+                                <div class="profile-details" data-bind="text:description">
+                                </div>
+                            </div>
 
-            <div class="profile-bottom-spacer">
+                            <div class="profile-bottom-spacer">
 
-            </div>
-            </div>
+                            </div>
+                        </div>
 
-            </div>
-            </div>
+                    </div>
+                </div>
 
-            <div class="trainer-card-overlay" data-bind="visible: $root.profileDetailsShowing">
-            <a class="selection-button button-nope" data-bind="click: $root.swipeLeft"s>
-            <i class=" fas fa-times"></i>
-            </a>
-            <a class="selection-button button-super" data-bind="click: $root.swipeUp">
-            <i class=" fas fa-star"></i>
-            </a>
-            <a class="selection-button button-like" data-bind="click: $root.swipeRight">
-            <i class=" fas fa-heart"></i>
-            </a>
-            </div>
+                <div class="trainer-card-overlay" data-bind="visible: $root.profileDetailsShowing">
+                    <a class="selection-button button-nope" data-bind="click: $root.swipeLeft"s>
+                        <i class=" fas fa-times"></i>
+                    </a>
+                    <a class="selection-button button-super" data-bind="click: $root.swipeUp">
+                        <i class=" fas fa-star"></i>
+                    </a>
+                    <a class="selection-button button-like" data-bind="click: $root.swipeRight">
+                        <i class=" fas fa-heart"></i>
+                    </a>
+                </div>
 
             </div>
         </script>
         <script id="registrationForm" type="text/html">
             <h2>Tell us something about yourself</h2>
             <div class="form-row"> 
-            <label for="name">Name:</label>
-            <input id="name" type="text" data-bind="textinput: name" required>
+                <label for="name">Name:</label>
+                <input id="name" type="text" data-bind="textinput: name" required>
             </div><div class="form-row"> 
-            <label for="technology">Technology</label>
-            <input id="technology" type="text" data-bind="textinput: technology" required>
+                <label for="technology">Technology</label>
+                <input id="technology" type="text" data-bind="textinput: technology" required>
             </div><div class="form-row"> 
-            <label for="description">About you:</label>
-            <textarea id="description"  rows="6" data-bind="textinput: description" required>
-            </textarea>
-</div><div class="form-row"> 
-            <label for="affiliation">Affiliation:</label>
-            <input id="affiliation" type="text" data-bind="textinput: affiliation"required>
+                <label for="description">About you:</label>
+                <textarea id="description"  rows="6" data-bind="textinput: description" required>
+                </textarea>
             </div><div class="form-row"> 
-            <label for="quote">Motto:</label>
-            <input id="quote" type="text" data-bind="textinput: quote"required>
+                <label for="affiliation">Affiliation:</label>
+                <input id="affiliation" type="text" data-bind="textinput: affiliation"required>
             </div><div class="form-row"> 
-            <label for="inp">Upload an Image:</label>
-            <input id="inp" type='file' onchange="readFile(event)" required>
+                <label for="quote">Motto:</label>
+                <input id="quote" type="text" data-bind="textinput: quote"required>
+            </div><div class="form-row"> 
+                <label for="inp">Upload an Image:</label>
+                <input id="inp" type='file' onchange="readFile(event)" required>
+                <img id="img" width="100" height="150" data-bind="attr: {src: img}">
             </div>
-            <img id="img" width="100" height="150" data-bind="attr: {src: img}">
-            <button type="submit" data-bind="click: $root.storeProfile">submit</button>
+            <div class="submitbutton">
+                <button type="submit" data-bind="click: $root.storeProfile">submit</button>
+            </div>
         </script>
 
         <script type="text/javascript">
             function readFile(event) {
             var inp = event.target;
-                if (inp.files && inp.files[0]) {
-                    var FR= new FileReader();
-                    FR.addEventListener("load", function(e) {
-                        var elem = document.getElementById("img");
-                        var img= e.target.result;
-                        ko.dataFor(elem).img(img);
-                    }); 
-                    FR.readAsDataURL( inp.files[0] );
-                }
+            if (inp.files && inp.files[0]) {
+            var FR= new FileReader();
+            FR.addEventListener("load", function(e) {
+            var elem = document.getElementById("img");
+            var img= e.target.result;
+            ko.dataFor(elem).img(img);
+            }); 
+            FR.readAsDataURL( inp.files[0] );
+            }
             }
         </script>
     </body>
