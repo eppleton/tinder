@@ -46,9 +46,12 @@ final class DataModel {
         ui.setBaseUrl("http://localhost:8080/t/");
         //	http://localhost:8080/t/java-app2/javafn-trigger
         ui.setActiveProfile(ui.getProfiles().get(0));
+        ui.getActiveProfile().setVisible(true);
         ui.setNextProfile(ui.getProfiles().get(1));
         ui.setNewProfile(new Profile());
+        ui.setMyProfile(ui.getProfiles().get(0));
         ui.setLoaded(true);
+        
         ui.applyBindings();
         ui.loadAllProfiles();
     }
@@ -111,9 +114,11 @@ final class DataModel {
     @Function
     public static void newTop(Root root) {
         Profile remove = root.getProfiles().remove(0);
+        
         root.setActiveProfile(root.getNextProfile());
         if (root.getProfiles().size() > 0) {
             root.setNextProfile(root.getProfiles().get(1));
+            root.getNextProfile().setVisible(false);
         }
         remove.setStatus(Status.EMPTY);
         root.getProfiles().add(remove);
@@ -122,6 +127,7 @@ final class DataModel {
     @Function
     public static void swipeLeft(Root root) {
         root.setProfileDetailsShowing(false);
+        root.getNextProfile().setVisible(true);
         Profile top = root.getActiveProfile();
         top.setStatus(Status.DISMISSED);
     }
@@ -129,6 +135,7 @@ final class DataModel {
     @Function
     public static void swipeRight(Root root) {
         root.setProfileDetailsShowing(false);
+        root.getNextProfile().setVisible(true);
         Profile top = root.getActiveProfile();
         top.setStatus(Status.LIKED);
     }
@@ -136,6 +143,7 @@ final class DataModel {
     @Function
     public static void swipeUp(Root root) {
         root.setProfileDetailsShowing(false);
+        root.getNextProfile().setVisible(true);
         Profile top = root.getActiveProfile();
         top.setStatus(Status.SUPERLIKED);
     }
@@ -149,6 +157,7 @@ final class DataModel {
         ,@Property(name = "affiliation", type = String.class)
         ,@Property(name = "quote", type = String.class)
         ,@Property(name = "img", type = String.class)
+        ,@Property(name = "visible", type = boolean.class)
     })
     static class ProfileVMD {
 
